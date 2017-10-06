@@ -1,4 +1,5 @@
 const THREE = require('three');
+const OrbitControls = require('three-orbit-controls')(THREE);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -56,8 +57,8 @@ addCubeMesh(object, [1, 5.2, 1], [1, 0.8, 2], 0xC63744);
 addCubeMesh(object, [1, 8, -0.5], [1, 1, 2], 0xC63744);
 
 // Wings
-addCubeMesh(object, [3, 1.5, -0.5], [1, 2, 3], 0xffffff);
-addCubeMesh(object, [3, 1.5, -0.5], [1, 2, 3], 0xffffff);
+addCubeMesh(object, [3, 1.5, -0.5], [1, 2, 3.4], 0xffffff);
+addCubeMesh(object, [-1, 1.5, -0.5], [1, 2, 3.4], 0xffffff);
 
 function makeFoot() {
 	const foot = new THREE.Object3D();
@@ -76,8 +77,9 @@ const rightFoot = makeFoot();
 object.add(rightFoot);
 rightFoot.position.set(-1.25 + 1.25, -1, -2);
 
-addCubeMesh(object, [2, 6.5, -1], [1, 0.5, 0.5], 0x000000);
-addCubeMesh(object, [0, 6.5, -1], [1, 0.5, 0.5], 0x000000);
+// Eyes
+addCubeMesh(object, [2.1, 6.5, -1], [1, 0.5, 0.5], 0x000000);
+addCubeMesh(object, [-0.1, 6.5, -1], [1, 0.5, 0.5], 0x000000);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
 scene.add(directionalLight);
@@ -88,3 +90,5 @@ const ambientLight = new THREE.AmbientLight(0x888888);
 scene.add(ambientLight);
 
 animate();
+
+const controls = new OrbitControls(camera);
