@@ -1,0 +1,15 @@
+{
+  "name": "crossy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "watchify src/index.js -o js/bundle.js --debug --verbose"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.87.1"
+  }
+}
